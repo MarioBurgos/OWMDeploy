@@ -8,21 +8,24 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: ()=> import('./modules/home/home.module').then(m=>m.HomeModule)
+        loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'weather',
-        loadChildren: ()=> import('./modules/weather/weather.module').then(m=>m.WeatherModule)
+        loadChildren: () => import('./modules/weather/weather.module').then(m => m.WeatherModule)
       },
       {
         path: 'about',
-        loadChildren: ()=> import('./modules/about/about.module').then(m=>m.AboutModule)
-      },
+        loadChildren: () => import('./modules/about/about.module').then(m => m.AboutModule)
+      }
 
     ]
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+    pathMatch: 'full'
   }
-
-
 ];
 
 @NgModule({
